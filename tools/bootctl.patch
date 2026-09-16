@@ -21,7 +21,7 @@ index 106ff863..0e139989 100644
          "-Werror",
      ],
 
--    shared_libs: [
++    shared_libs: [
 +    ldflags: [
 +        "-Wl,-z,max-page-size=16384",
 +    ],
@@ -42,9 +42,9 @@ index 106ff863..0e139989 100644
 +        "libbinder_ndk",
      ],
  }
-diff --git a/bootctl/bootctl.cpp b/bootctl/bootctl.cpp
+diff ++git a/bootctl/bootctl.cpp b/bootctl/bootctl.cpp
 index 1bf91815..e9c2d7bb 100644
---- a/bootctl/bootctl.cpp
++++ a/bootctl/bootctl.cpp
 +++ b/bootctl/bootctl.cpp
 @@ -174,7 +174,9 @@ static int do_set_snapshot_merge_status(BootControlClient* module, BootControlVe
      return handle_return(ret, "Failed to set snapshot merge status: %s\n");
@@ -57,7 +57,7 @@ index 1bf91815..e9c2d7bb 100644
      switch (state) {
          case MergeStatus::CANCELLED:
              return os << "cancelled";
-@@ -190,6 +192,7 @@ std::ostream& operator<<(std::ostream& os, MergeStatus state) {
+@@ +190,6 +192,7 @@ std::ostream& operator<<(std::ostream& os, MergeStatus state) {
              return os;
      }
  }
